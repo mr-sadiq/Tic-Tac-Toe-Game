@@ -1,0 +1,184 @@
+/* Resetting margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    text-align: center;
+}
+
+.background {
+    background: rgba(0, 0, 0, 0.9) url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+h1 {
+    color: white;
+    position: relative;
+    display: inline-block;
+    font-size: 3rem; /* Adjust size as needed */
+    font-family: Arial, sans-serif; /* Customize font family */
+    margin-top: 20px;
+  }
+  
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #eeeaea; /* Change color of the underline */
+    transition: width 0.5s ease;
+  }
+  
+  h1:hover::after {
+    width: 100%;
+  }
+  
+
+.container {
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    /* margin-bottom: 50px; */
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5vmin;
+    border: 3px solid transparent;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Box styles */
+.box {
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 1rem rgba(238, 213, 213, 0.3);
+    font-size: 10vmin;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(230, 16, 16);
+    background-color: #ffffc7;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover and click effects */
+}
+
+/* Glowing border effect when hovering over the box */
+.box:hover {
+    border: 1px solid rgb(255, 6, 6);
+    box-shadow: 0 0 1rem rgb(255, 0, 0);
+}
+
+/* Animation for when a box is clicked */
+.box:active {
+    animation: clickAnimation 0.3s ease-in-out;
+}
+
+/* Glowing border animation when clicked */
+@keyframes clickAnimation {
+    0% {
+        border: 3px solid rgb(255, 0, 0); /* Start with a glow */
+        box-shadow: 0 0 10px 2px rgb(255, 0, 0);
+    }
+    50% {
+        border: 3px solid rgba(255, 30, 0); /* Fade glow */
+        box-shadow: 0 0 15px 5px rgb(255, 0, 0);
+    }
+    100% {
+        border: 3px solid rgba(255, 38, 0, 0); /* End with no glow */
+        box-shadow: 0 0 15px 5px rgb(46, 45, 44);  
+    }
+}
+
+/* Glowing border effect for the game container when a winner is found */
+@keyframes winnerGlow {
+    0% {
+        border-color: rgba(255, 165, 0, 0);
+        box-shadow: 0 0 2rem rgba(151, 36, 36, 0.3);
+    }
+    50% {
+        border-color: rgb(255, 102, 0); /* Glowing orange border */
+        box-shadow: 0 0 2rem rgba(192, 26, 26, 0.3);
+    }
+    100% {
+        border-color: rgba(255, 165, 0, 0);
+        box-shadow: 0 0 2rem rgba(196, 18, 18, 0.3);
+    }
+}
+
+.game.glow {
+    animation: winnerGlow 1s ease-in-out infinite;
+}
+
+/* Reset and New Game button styles */
+#reset-btn {
+    padding: 1rem;
+    font-size: 1.20rem;
+    background-color: #191913;
+    color: black;
+    border-radius: 1rem;
+    border: none;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    background-color: white;
+}
+
+#reset-btn:hover {
+    font-size: 1.25rem;
+    box-shadow: 0 0 1rem rgba(255, 0, 0, 0.664);
+}
+
+#new-btn {
+    padding: 1rem;
+    font-size: 1.20rem;
+    background-color: white;
+    color: black;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+#new-btn:hover {
+    font-size: 1.25rem;
+    box-shadow: 0 0 1rem rgba(255, 0, 0, 0.664);
+}
+
+#msg {
+    color: #ffffc7;
+    font-size: 5vmin;
+}
+
+.msg-container {
+    height: 100vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hide {
+    display: none;
+}
+/* Player X */
+.x {
+    color: #ff0000; /* Red */
+}
+
+/* Player O */
+.o {
+    color: #000; /* Blue */
+}
